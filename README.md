@@ -1,3 +1,26 @@
+<h3>Tugas 9</h3>
+
+ 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON? <br>
+ Ya, jika kita tidak mememerlukan mapping data pada aplikasi kita, maka kita bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Namun, sebaiknya kita membuat model terlebih dahulu untuk memastikan bahwa data yang diterima oleh aplikasi memiliki tipe data yang tepat dan developer dapat lebih memahami struktur datanya. <br>
+
+ 2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter. <br>
+ CookieRequest berfungsi untuk men-handle HTTP request dengan autentikasi berbasis cookie dan untuk mengatur cookie untuk user session. Instance tersebut perlu dibagikan ke semua komponen agar cookie dapat dipertahankan pada keseluruhan session. <br>
+
+ 3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter. <br>
+ Pertama, kita perlu membuat model class yang bersesuaian dengan key pada data JSON yang diterima. Selanjutnya, kita melakukan fetch data dari web. Pada tugas ini, data JSON diambil dari url JSON app Django yang sebelumnya telah dibuat. Terakhir, data tersebut ditampilkan di dalam widget. <br>
+
+ 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter. <br>
+ Pada halaman LoginPage, user akan memasukkan username serta passwordnya. Kedua atribut tersebut akan dikirim ke method login yang ada di app authentication yang ada pada web Django. Jika username dan password benar, maka method tersebut akan me-return status True dan user dapat masuk ke dalam aplikasi. <br>
+
+ 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing. <br>
+ Widget yang digunakan pada tugas sebelumnya yang ditambah dengan: <br>
+      1. ElevatedButton: menampilkan tombol yang "elevated" ketika ditekan
+      2. TextField: field yang dapat diisi dengan teks oleh user
+      3. SizedBox: box yang memiliki ukuran yang konstan 
+
+ 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial). <br>
+ Pertama, saya membuat app Django baru yang bernama authentication. Pada views.py nya, saya tambahkan method login yang akan digunakan pada login di aplikasi Flutter. Saya menambahkan path yang sesuai pada urls.py di app. Kemudian, saya memasang dependency `django-cors-headers` dan menambahkan beberapa variabel dan setting lainnya pada file settings.py root folder. Selanjutnya, di project Flutter, saya memasang package `provider`, `pbp_django_auth`, dan `http`. Saya juga memodifikasi AndroidManifest.xml agar memperbolehkan akses internet pada aplikasi Flutter. Kemudian, saya memasang CookieRequest pada root widget agar cookie terimplementasi pada setiap page app. Lalu, saya membuat halaman login pada file baru yang bernama login.dart. Untuk menghubungkan data dari Django, saya membuat model dart dengan bantuan tool Quicktype. Selanjutnya saya fetch data JSON dari URL web Django. Untuk form add item, saya membuat method baru pada Django untuk dapat membuat item baru dari aplikasi Flutter yang dihubungkan pada form di Flutter. Untuk logout, saya menambahkan method `logout` pada views.py di app authentication Django yang saya hubungkan ke tombol logout pada home page. Untuk melihat detail item, saya membuat page baru yang bernama DetailPage yang mendapatkan detail item yang diklik pada halaman daftar item. DetailPage akan mendapatkan semua atributnya dari data yang dikirim dari daftar item.
+ 
 <h3>Tugas 8</h3>
 
  1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat! <br>

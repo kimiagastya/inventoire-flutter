@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventoire/screens/list_product.dart';
 import 'package:inventoire/screens/menu.dart';
 import 'package:inventoire/screens/shoplist_form.dart';
 
@@ -26,7 +27,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
-                Text("The Value Will Only Go Up!", style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.normal,),
+                Text("We sell high end rocketships", style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.normal,),
                   textAlign: TextAlign.center, // To add center alignment
                     ),
               ],
@@ -52,6 +53,16 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ShopFormPage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Lihat Item'),
+            onTap: () {
+            // Route menu ke halaman produk
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductPage()));
             },
           ),
         ],
